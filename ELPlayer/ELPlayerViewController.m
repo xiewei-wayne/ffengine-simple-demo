@@ -131,6 +131,8 @@
 - (void)mediaDuration:(size_t)duration
 {
     _videoDuration = duration;
+    
+    self.pLeftTimeLabel.text = [NSString stringWithFormat: @"%lu", duration / 1000];
 }
 
 // player -> UI
@@ -140,7 +142,7 @@
     _videoPostion = position;
 
     self.pEstablishedTimeLabel.text = [NSString stringWithFormat: @"%lu", position / 1000];
-    self.pLeftTimeLabel.text = [NSString stringWithFormat: @"-%lu", (_videoDuration - _videoPostion) / 1000];
+//    self.pLeftTimeLabel.text = [NSString stringWithFormat: @"-%lu", (_videoDuration - _videoPostion) / 1000];
     
     self.progressPSlider.value = 1.0 * _videoPostion / _videoDuration;
 }
