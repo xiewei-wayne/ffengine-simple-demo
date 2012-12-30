@@ -71,17 +71,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    ELPlayerViewController *playerViewController = [[[ELPlayerViewController alloc] initWithNibName: @"ELPlayerViewController" bundle: nil] autorelease];
-    
+    // get file path
     NSString *fileName = [self.fileListArray objectAtIndex: indexPath.row];
+    NSString *filePath = [[ELUtils documentsPath] stringByAppendingPathComponent: fileName];
     
-    playerViewController.titleName = fileName;
-    fileName = [[ELUtils documentsPath] stringByAppendingPathComponent: fileName];
     
-    NSLog(@"Playing: %@", fileName);
-    playerViewController.videoUrl = fileName;
+    // get media info
+    NSDictionary *mediaInfo = [ELMediaUtil getMediaDescription: filePath];
+    NSLog(@"mediaInfo = %@", mediaInfo);
 
-    [self.navigationController pushViewController: playerViewController animated:YES];
+    // can not get media info
+    if (nil == mediaInfo)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle: nil message: @"file not supported, maybe it contains dolby technologies."
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+    }
+    else
+    {
+        // show player view
+        ELPlayerViewController *playerViewController = [[[ELPlayerViewController alloc] initWithNibName: @"ELPlayerViewController" bundle: nil] autorelease];
+        
+        playerViewController.titleName = fileName;
+        NSLog(@"Playing: %@", filePath);
+        playerViewController.videoUrl = filePath;
+        
+        [self.navigationController pushViewController: playerViewController animated:YES];    }
+
 }
 
 @end
