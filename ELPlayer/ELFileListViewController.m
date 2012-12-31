@@ -98,7 +98,8 @@
         NSLog(@"Playing: %@", filePath);
         playerViewController.videoUrl = filePath;
         
-        [self.navigationController pushViewController: playerViewController animated:YES];    }
+        [self.navigationController pushViewController: playerViewController animated:YES];
+    }
 
 }
 

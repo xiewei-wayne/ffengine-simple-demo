@@ -8,6 +8,7 @@
 
 #import "InputVideoUrlViewController.h"
 #import "ELPlayerViewController.h"
+#import "MBProgressHUD.h"
 
 @implementation InputVideoUrlViewController
 @synthesize searchBar = _searchBar;
@@ -25,8 +26,8 @@
 
     self.urlHistory = [NSMutableArray arrayWithCapacity: 20];
 
-    
-    
+    [_urlHistory addObject: @"http://www.auby.no/files/video_tests/h264_720p_hp_5.1_6mbps_ac3_unstyled_subs_planet.mkv"];
+
     [_urlHistory addObject: @"rtmp://rtmp.sctv.com/SRT_Live/KBTV_800"];
     [_urlHistory addObject: @"rtmp://media.csjmpd.com/live/live1"];
 
@@ -86,6 +87,39 @@
     [self.searchBar becomeFirstResponder];
 }
 
+#pragma mark - detecting thread, just for demo use
+
+-(void) detectUrlSupportFinished: (NSDictionary *) mediaInfo
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+
+    // can not get media info
+    if (nil == mediaInfo)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle: nil message: @"file not supported, maybe it contains dolby technologies."
+                                                           delegate: nil
+                                                  cancelButtonTitle: @"OK"
+                                                  otherButtonTitles: nil];
+        [alertView show];
+    }
+    else
+    {
+        ELPlayerViewController *playerViewController = [[[ELPlayerViewController alloc] initWithNibName: @"ELPlayerViewController" bundle: nil] autorelease];
+        playerViewController.videoUrl = self.searchBar.text;
+        [self.navigationController pushViewController:playerViewController animated:NO];
+    }
+}
+
+-(void) detectUrlSupported: (NSString *) url
+{
+    // sync method, should call in thread
+    // get media info
+    NSDictionary *mediaInfo = [ELMediaUtil getMediaDescription: url];
+    NSLog(@"mediaInfo = %@", mediaInfo);
+    
+    [self performSelectorOnMainThread: @selector(detectUrlSupportFinished:) withObject: mediaInfo waitUntilDone: YES];
+}
+
 #pragma mark - searchbar delegate
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *) searchBar
@@ -102,16 +136,21 @@
         return;
     }
 
+    // add to table item list
     if (![self.urlHistory containsObject: searchBar.text]) 
     {
         [self.urlHistory addObject: searchBar.text];
     }
 
+    // refresh table
     [self.tableView reloadData];
 
-    ELPlayerViewController *playerViewController = [[[ELPlayerViewController alloc] initWithNibName: @"ELPlayerViewController" bundle: nil] autorelease];
-    playerViewController.videoUrl = searchBar.text;
-    [self.navigationController pushViewController:playerViewController animated:NO];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo: self.view animated: YES];
+    hud.labelText = @"Detecting...";
+    
+    // you should add a hud to your window here.
+    // MBProgressHUD: https://github.com/jdg/MBProgressHUD/network
+    [self performSelectorInBackground: @selector(detectUrlSupported:) withObject: searchBar.text];
 }
 
 @end

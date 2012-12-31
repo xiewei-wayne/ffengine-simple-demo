@@ -30,6 +30,8 @@
 		D57337E014F8ACD200D5BA1F /* ELPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D57337DE14F8ACD100D5BA1F /* ELPlayerViewController.m */; };
 		D57337E114F8ACD200D5BA1F /* ELPlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D57337DF14F8ACD200D5BA1F /* ELPlayerViewController.xib */; };
 		D59B21E01628687B00CA6CD8 /* FFEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5FC28F31615C89F001CB743 /* FFEngine.framework */; };
+		D5A6B3A716913BFB00081632 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D5A6B3A516913BFB00081632 /* MBProgressHUD.m */; };
+		D5A6B3A816913BFB00081632 /* README.mdown in Resources */ = {isa = PBXBuildFile; fileRef = D5A6B3A616913BFB00081632 /* README.mdown */; };
 		D5B20CDB1622D56F00C90BFB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D5B20CDA1622D56F00C90BFB /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +68,9 @@
 		D57337DD14F8ACD100D5BA1F /* ELPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELPlayerViewController.h; sourceTree = "<group>"; };
 		D57337DE14F8ACD100D5BA1F /* ELPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELPlayerViewController.m; sourceTree = "<group>"; };
 		D57337DF14F8ACD200D5BA1F /* ELPlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ELPlayerViewController.xib; sourceTree = "<group>"; };
+		D5A6B3A416913BFB00081632 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		D5A6B3A516913BFB00081632 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		D5A6B3A616913BFB00081632 /* README.mdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.mdown; sourceTree = "<group>"; };
 		D5B20CDA1622D56F00C90BFB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		D5FC28F31615C89F001CB743 /* FFEngine.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FFEngine.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +101,7 @@
 		D506992B14F8960F0092E201 = {
 			isa = PBXGroup;
 			children = (
+				D5A6B3A216913BFB00081632 /* thirdparty */,
 				D5134F2C16405B48005FFB45 /* FFmpeg.framework */,
 				D5FC28F31615C89F001CB743 /* FFEngine.framework */,
 				D506994014F8960F0092E201 /* ELPlayer */,
@@ -166,6 +172,24 @@
 			path = ELPlayer;
 			sourceTree = "<group>";
 		};
+		D5A6B3A216913BFB00081632 /* thirdparty */ = {
+			isa = PBXGroup;
+			children = (
+				D5A6B3A316913BFB00081632 /* MBProgressHUD */,
+			);
+			path = thirdparty;
+			sourceTree = "<group>";
+		};
+		D5A6B3A316913BFB00081632 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				D5A6B3A416913BFB00081632 /* MBProgressHUD.h */,
+				D5A6B3A516913BFB00081632 /* MBProgressHUD.m */,
+				D5A6B3A616913BFB00081632 /* README.mdown */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,6 +245,7 @@
 				D57337D114F8A08F00D5BA1F /* ELFileListViewController.xib in Resources */,
 				D57337D714F8A66B00D5BA1F /* InputVideoUrlViewController.xib in Resources */,
 				D57337E114F8ACD200D5BA1F /* ELPlayerViewController.xib in Resources */,
+				D5A6B3A816913BFB00081632 /* README.mdown in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,6 +263,7 @@
 				D57337D014F8A08F00D5BA1F /* ELFileListViewController.m in Sources */,
 				D57337D614F8A66B00D5BA1F /* InputVideoUrlViewController.m in Sources */,
 				D57337E014F8ACD200D5BA1F /* ELPlayerViewController.m in Sources */,
+				D5A6B3A716913BFB00081632 /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
