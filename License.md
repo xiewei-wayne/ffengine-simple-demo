@@ -13,7 +13,7 @@ To the extent permitted under Law, The Software is provided under an AS-IS basis
 
 
 # Commercial License
-Copyright © 2012 Yakamoz Labs. All rights reserved.
+Copyright © 2012 www.ffsdk.com. All rights reserved.
 
 This agreement sets the terms, rights, restrictions and obligations on using FFEngine SDK for iOS (hereinafter: The Software) created and owned by www.e-linkway.com (hereinafter: Licensor), as detailed herein.
 
