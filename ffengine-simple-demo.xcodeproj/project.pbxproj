@@ -342,6 +342,7 @@
 				GCC_PREFIX_HEADER = "ELPlayer/ffengine-simple-demo-Prefix.pch";
 				INFOPLIST_FILE = "ELPlayer/ffengine-simple-demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "ffengine-simple-demo";
 				USER_HEADER_SEARCH_PATHS = ./include;
 				WRAPPER_EXTENSION = app;
@@ -362,6 +363,7 @@
 				GCC_PREFIX_HEADER = "ELPlayer/ffengine-simple-demo-Prefix.pch";
 				INFOPLIST_FILE = "ELPlayer/ffengine-simple-demo-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 3.2;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "ffengine-simple-demo";
 				USER_HEADER_SEARCH_PATHS = ./include;
 				WRAPPER_EXTENSION = app;

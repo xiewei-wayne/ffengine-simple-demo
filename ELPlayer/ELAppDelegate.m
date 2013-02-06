@@ -34,7 +34,7 @@
     [self.window makeKeyAndVisible];
 
     // FFEngine: register engine!
-    registerLib("ffsdk.com");
+    RegisterFFEngine(@"yQ2oiBQRbXoo35veDico9ggF4ARFxRdjq3yiIvBltwIPe/SgphrthjEVCzt6mtAfejcyM1fkbDdY+wE8j7oeJLK+u1KEO7IgfEDQ+KrnsNc=");
 
     return YES;
 }
