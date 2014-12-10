@@ -1,7 +1,12 @@
 ffengine-simple-demo
 ====================
 
-Demo project for FFEngine from www.ffsdk.com
+!ffengine is free now!
+
+Please get the source code at:
+https://github.com/ffengine/libffengine
+
+
 
 
 1) What's FFEngine
