@@ -45,9 +45,11 @@ Behind the scenes FFEngine relies on the iOS AudioToolbox/CoreAudio/CoreGraphics
 - 5.4) Add -ObjC to 'Other link flags' of your project, build & have fun!
 
 
-99) Commercial Support
-If you need any commercial support, please mail to: xiewei.max@gmail.com
+99) Open source
+All source code of ffengine.framework is now open source in my git hub.
+You can compile ffmpeg/ffengine from scratch with the source code.
 
+xiewei.max@gmail.com 
 Thanks.
 
 
